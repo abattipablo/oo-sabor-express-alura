@@ -1,20 +1,22 @@
 from modelos.restaurante import Restaurante
+from modelos.cardapio.prato import Prato
+from modelos.cardapio.bebida import Bebida
 
 restaurante_belgrano = Restaurante('Belgrano', 'Pizzaria')
 restaurante_soushi = Restaurante('Soushi', 'Japonesa')
 restaurante_belvedere = Restaurante('Belvedere', 'Lanches')
 
-restaurante_belgrano.receber_avaliacao('Pablo', 2)
-restaurante_belgrano.receber_avaliacao('Rodrigo', 5)
-restaurante_belgrano.receber_avaliacao('Ana', 2)
-restaurante_belgrano.receber_avaliacao('Mona', 4)
+prato1 = Prato('Pizza Margherita', 30, 'Pizza clássica com molho de tomate e queijo')
+bebida1 = Bebida('Coca-Cola', 10, '350ml')
 
-restaurante_soushi.receber_avaliacao('Julio', 1)
-restaurante_soushi.receber_avaliacao('Magali', 10)
+prato1.aplicar_desconto(10)
 
+restaurante_belgrano.adicionar_item_ao_cardapio(prato1)
+restaurante_belgrano.adicionar_item_ao_cardapio(bebida1)
 
 def main():
-    Restaurante.listar_restaurantes()
+    restaurante_belgrano.listar_cardapio()
+
 
 if __name__ == '__main__':
     main()
